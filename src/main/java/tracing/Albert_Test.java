@@ -33,6 +33,7 @@ package tracing;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.Random;
 
 import features.ComputeCurvatures;
@@ -146,7 +147,7 @@ public class Albert_Test implements PlugIn {
 		File tmpFile;
 
 		try {
-			tmpFile = File.createTempFile("albert-test-", ".xml");
+			tmpFile = Files.createTempFile("albert-test-", ".xml").toFile();
 			manager.writeXML(tmpFile.getAbsolutePath(), false);
 		} catch (final IOException e) {
 			IJ.error("IOException while trying to write the path to a temporary file: " + e);
